@@ -76,6 +76,7 @@
 
         <video id="content" class="videoBG" playsinline autoplay muted loop preload="auto">
             <source src="app/assets/video/home-background.webm" type="video/webm">
+            <source src="app/assets/video/home-background.mp4" type="video/mp4">
         </video>
 
         <footer class="footer footer__home">
