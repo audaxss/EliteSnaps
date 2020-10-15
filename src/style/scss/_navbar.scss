@@ -1,0 +1,304 @@
+.navbar {
+    width: 100%;
+    padding: 20px 5%;
+
+    position: fixed;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+    z-index: 9995;
+
+    &__logo {
+        margin-right: auto;
+        opacity: 0.8;
+
+        >li {
+            display: block;
+
+            &.anchor-animate {
+                &--fadein {
+                    animation: 700ms ease-in 100ms forwards fadeOut--slideIn;
+                }
+
+                &--fadeout {
+                    animation: 500ms ease-out 400ms forwards fadeOut--slideOut;
+                }
+            }
+
+            >a>img {
+                filter: invert(1);
+                height: 100px;
+                width: 200px;
+                opacity: 0.8;
+
+                transition: all 300ms ease-in-out;
+                transition-property: width, height;
+
+                @include screen(medium) {
+                    height: 130px;
+                    width: 230px;
+                }
+            }
+        }
+
+        .logo-image {
+            opacity: 1;
+            transition: opacity 200ms ease-in-out;
+
+            &--fade {
+                opacity: 0;
+
+                @include screen(medium) {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__anchor {
+        padding: 10px 0;
+
+        a {
+            font: 500 11px $p-font;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            padding: 5px;
+            display: block;
+            cursor: pointer;
+
+            transition: all 300ms ease-in-out;
+        }
+
+        a:not(.active) {
+            color: $low-white;
+            transition: color 200ms ease-in-out;
+
+            &:hover {
+                color: $white;
+                z-index: 9999;
+            }
+        }
+
+        .active {
+            color: $white;
+        }
+
+        &--mobile {
+            display: block;
+
+            @include screen(medium) {
+                display: none;
+            }
+
+            .menu {
+                padding: 5px;
+                display: block;
+                cursor: pointer;
+                opacity: 1;
+
+                >span {
+                    display: block;
+                    width: 30px;
+                    height: 2px;
+                    margin: 0 0 6px 0;
+                    background-color: $white;
+                }
+
+                &--fade {
+                    opacity: 0;
+                }
+            }
+
+            .sidebar {
+                position: fixed;
+                top: 0;
+                right: 0;
+
+                background-color: #000;
+
+                height: 100vh;
+                min-height: 600px;
+
+                width: 0%;
+
+                transform: translateX(100%);
+                transition: all 450ms ease-in-out;
+                transition-property: transform, width;
+
+                @include screen(medium) {
+                    transform: translateX(100%);
+                }
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+
+                &__close {
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+
+                    margin: 15px 0 0 0;
+                    width: 100%;
+                    height: 40px;
+                    position: relative;
+                    overflow: hidden;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                }
+
+                &__close__btn {
+                    opacity: 0;
+                    padding: 20px;
+                    cursor: pointer;
+                    transition: opacity 500ms ease-in-out;
+
+                    img {
+                        width: 25px;
+                    }
+
+                    &--unfade {
+                        opacity: 1;
+                    }
+                }
+
+                &__anchor {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: center;
+
+                    height: 100%;
+                    width: 100%;
+
+
+
+                    ul {
+                        width: 100%;
+
+                        overflow: hidden;
+
+                        @include screen(small_medium) {
+                            overflow: hidden;
+                        }
+                    }
+
+                    ul li {
+                        display: block;
+                        margin: 10px 30px;
+                        opacity: 0;
+
+                        a {
+                            display: block;
+                            font: 600 20px $p-font;
+
+                            @include screen(small_medium) {
+                                font: 600 20px $p-font;
+                            }
+                        }
+                    }
+                }
+
+                &--open {
+                    width: 100%;
+                    transform: translateX(0);
+
+                    @include screen(small_medium) {
+                        width: 50%;
+                    }
+                }
+
+                &--close {
+
+                    @include screen(small_medium) {
+                        transform: translateX(50%);
+                    }
+                }
+            }
+
+        }
+
+        &--desktop {
+            display: none;
+
+            @include screen(medium) {
+                display: block;
+            }
+
+            ul li {
+                display: inline-block;
+
+                &:not(:last-child) {
+                    margin: 0 40px 0 0;
+                }
+
+
+            }
+        }
+    }
+}
+
+.anchor-animate {
+    &--fadein {
+        opacity: 0;
+        $anchor_count: 5;
+        $delay: 0;
+
+        @for $i from 1 through $anchor_count {
+            &:nth-child(#{$i}) {
+                animation: 500ms ease-in-out #{$delay}ms forwards fadeIn;
+            }
+
+            $delay: $delay+200;
+        }
+    }
+
+    &--fadeout {
+        opacity: 1;
+        $anchor_count: 5;
+        $delay: 0;
+
+        @for $i from 1 through $anchor_count {
+            &:nth-child(#{$i}) {
+                animation: 500ms ease-in-out #{$delay}ms forwards fadeOut;
+            }
+
+            $delay: $delay+200;
+        }
+    }
+
+    &--downin {
+        $anchor_count: 5;
+        $delay: 0;
+
+        @for $i from 1 through $anchor_count {
+            &:nth-last-child(#{$i}) {
+                opacity: 1;
+                animation: 150ms ease-out #{$delay}ms normal both fadeOut--up;
+            }
+
+            $delay: $delay+200;
+        }
+    }
+
+    &--downout {
+        $anchor_count: 5;
+        $delay: 0;
+
+        @for $i from 1 through $anchor_count {
+            &:nth-child(#{$i}) {
+                opacity: 0;
+                animation: 250ms ease-in #{$delay}ms normal forwards fadeOut--down;
+            }
+
+            $delay: $delay+200;
+        }
+    }
+}

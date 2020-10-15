@@ -1,0 +1,31 @@
+@mixin screen($size) {
+    @if $size==small {
+        @media screen and (min-width: 688px) {
+            @content;
+        }
+    }
+
+    @else if $size==small_medium {
+        @media screen and (min-width: 740px) {
+            @content;
+        }
+    }
+
+    @else if $size==medium {
+        @media screen and (min-width: 992px) {
+            @content;
+        }
+    }
+
+    @else if $size==large {
+        @media screen and (min-width: 1312px) {
+            @content;
+        }
+    }
+
+    @else if $size==xlarge {
+        @media screen and (min-width: 1800px) {
+            @content;
+        }
+    }
+}

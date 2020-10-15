@@ -1,0 +1,16 @@
+.footer {
+    padding: 25px 6%;
+
+    p {
+        font: bold 11px $p-font;
+        color: $mid-white;
+    }
+
+    &__home {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -2;
+    }
+}
