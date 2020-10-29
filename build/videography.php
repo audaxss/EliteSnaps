@@ -1,3 +1,4 @@
+<?php include_once 'app/php/getRecentPage.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,11 +89,17 @@
         <p class="text__left text__left--right text__left--right--video">Videography</p>
     </div>
 
+    <div style="display: none" id="goBack" page="<?php echo getRecentPage(); ?>"></div>
+
     <div id="lowerlay-right" class="line__context line__context--center">
         <a id="go-back" class="line__hover">
-            <p class="text__right text__right--left">return</p>
+            <p class="text__right text__right--left">
+                <?php echo getRecentPage() == @explode('.', basename($_SERVER['REQUEST_URI']))[0] ? null : 'return'; ?>
+            </p>
             <div class="line line__right"></div>
-            <p class="text__right text__right--right">Back</p>
+            <p class="text__right text__right--right">
+                <?php echo getRecentPage() == @explode('.', basename($_SERVER['REQUEST_URI']))[0] ? null : 'Back'; ?>
+            </p>
         </a>
     </div>
 

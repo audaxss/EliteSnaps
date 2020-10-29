@@ -1,3 +1,4 @@
+<?php include_once 'app/php/getRecentPage.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,15 +70,16 @@
 </head>
 
 <body class="gradient-background">
+    <div style="display: none" id="goBack" page="<?php echo getRecentPage(); ?>"></div>
     <main class="main" id="app">
         <div id="overlay" class="overlay-background__load overlay-background__hover"></div>
 
         <navigation-bar></navigation-bar>
 
-        <video id="content" class="videoBG" playsinline autoplay muted loop preload="auto">
+        <!-- <video id="content" class="videoBG" playsinline autoplay muted loop preload="auto">
             <source src="app/assets/video/home-background.webm" type="video/webm">
             <source src="app/assets/video/home-background.mp4" type="video/mp4">
-        </video>
+        </video> -->
 
         <footer class="footer footer__home">
             <p>COPYRIGHT © 2020. ALL RIGHTS RESERVED.</p>

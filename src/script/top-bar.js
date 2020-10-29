@@ -17,8 +17,8 @@ anchorModified.forEach((anchor) => {
             anchor_fadeout.style.pointerEvents = 'none';
             addClass(anchor_fadeout, 'anchor-animate--fadeout');
             addClass(menuBtn, 'anchor-animate--fadeout');
-            if (content != null) {
-                addClass(content, 'anchor-animate--downin');
+            if (contentContainer != null) {
+                addClass(contentContainer, 'anchor-animate--downin');
             }
         });
 

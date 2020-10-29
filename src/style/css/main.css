@@ -400,14 +400,15 @@ body {
 
 .navbar__anchor--mobile .sidebar {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
   background-color: #000;
-  height: 100vh;
+  height: 100%;
   min-height: 600px;
   width: 0%;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
+  -webkit-transform: translateX(100%) translate3d(0, 0, 0) translateZ(0);
+          transform: translateX(100%) translate3d(0, 0, 0) translateZ(0);
   -webkit-transition: all 450ms ease-in-out;
   transition: all 450ms ease-in-out;
   -webkit-transition-property: width, -webkit-transform;
@@ -431,8 +432,8 @@ body {
 
 @media screen and (min-width: 992px) {
   .navbar__anchor--mobile .sidebar {
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    -webkit-transform: translateX(100%) translate3d(0, 0, 0) translateZ(0);
+            transform: translateX(100%) translate3d(0, 0, 0) translateZ(0);
   }
 }
 
@@ -520,8 +521,8 @@ body {
 
 .navbar__anchor--mobile .sidebar--open {
   width: 100%;
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  -webkit-transform: translateX(0) translate3d(0, 0, 0) translateZ(0);
+          transform: translateX(0) translate3d(0, 0, 0) translateZ(0);
 }
 
 @media screen and (min-width: 740px) {
@@ -532,8 +533,8 @@ body {
 
 @media screen and (min-width: 740px) {
   .navbar__anchor--mobile .sidebar--close {
-    -webkit-transform: translateX(50%);
-            transform: translateX(50%);
+    -webkit-transform: translateX(50%) translate3d(0, 0, 0) translateZ(0);
+            transform: translateX(50%) translate3d(0, 0, 0) translateZ(0);
   }
 }
 
@@ -1252,6 +1253,7 @@ video {
 }
 
 .content__contact__form__container .button-container button {
+  cursor: pointer;
   padding: 15px 20px;
   outline: none;
   color: #fff;

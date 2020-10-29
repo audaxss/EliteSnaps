@@ -6,6 +6,7 @@ const logoImage = document.querySelector('.logo-image');
 const sidebar = document.querySelector('.sidebar');
 const main = document.querySelector('.main');
 const menuBtn = document.querySelector('.menu');
+const contentContainer = document.querySelector('#content');
 
 const addClass = (element, class_name) => {
     element.classList.add(class_name);

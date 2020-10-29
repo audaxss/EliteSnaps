@@ -1,5 +1,5 @@
 const goBack = document.querySelector('#go-back');
-const content = document.querySelector('#content');
+
 goBack.addEventListener('click', () => {
     document.querySelectorAll('.line__context').forEach((a) => {
         a.style.zIndex = -1;
@@ -8,7 +8,7 @@ goBack.addEventListener('click', () => {
         animateAnchor.forEach((anchor_fadeout) => {
             addClass(anchor_fadeout, 'anchor-animate--fadeout');
             addClass(menuBtn, 'anchor-animate--fadeout');
-            addClass(content, 'anchor-animate--downin');
+            addClass(contentContainer, 'anchor-animate--downin');
             if (lowerLayLeft != null && lowerLayRight != null) {
                 lowerLayLeft.style.opacity = 0;
                 lowerLayRight.style.opacity = 0;
@@ -25,8 +25,8 @@ goBack.addEventListener('click', () => {
         }, 1500)
 
         setTimeout(function () {
-            window.history.go(-1);
-            return false;
+            const beforePage = document.querySelector('#goBack').getAttribute('page');
+            location.href = beforePage;
         }, 2700);
     })
 })

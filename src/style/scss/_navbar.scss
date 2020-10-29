@@ -114,22 +114,23 @@
 
             .sidebar {
                 position: fixed;
-                top: 0;
-                right: 0;
+                top: 0px;
+                right: 0px;
+                bottom: 0px;
 
                 background-color: #000;
 
-                height: 100vh;
+                height: 100%;
                 min-height: 600px;
 
                 width: 0%;
 
-                transform: translateX(100%);
+                transform: translateX(100%) translate3d(0, 0, 0) translateZ(0);
                 transition: all 450ms ease-in-out;
                 transition-property: transform, width;
 
                 @include screen(medium) {
-                    transform: translateX(100%);
+                    transform: translateX(100%) translate3d(0, 0, 0) translateZ(0);
                 }
 
                 display: flex;
@@ -208,7 +209,7 @@
 
                 &--open {
                     width: 100%;
-                    transform: translateX(0);
+                    transform: translateX(0) translate3d(0, 0, 0) translateZ(0);
 
                     @include screen(small_medium) {
                         width: 50%;
@@ -218,7 +219,7 @@
                 &--close {
 
                     @include screen(small_medium) {
-                        transform: translateX(50%);
+                        transform: translateX(50%) translate3d(0, 0, 0) translateZ(0);
                     }
                 }
             }
